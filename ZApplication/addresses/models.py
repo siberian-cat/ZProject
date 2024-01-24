@@ -7,7 +7,7 @@ class StreetType(models.Model):
 
 class Street(models.Model):
     street_name = models.CharField(max_length=255)
-    streettype = models.ForeignKey(StreetType, related_name="streettypes", on_delete=models.PROTECT)
+    streettype = models.ForeignKey(StreetType, related_name="streets", on_delete=models.PROTECT)
 
 
 class Locality(models.Model):
@@ -16,6 +16,6 @@ class Locality(models.Model):
 
 class Address(models.Model):
     build_num = models.CharField(max_length=50)
-    locality = models.ForeignKey(Locality, related_name="localities", on_delete=models.PROTECT)
-    street = models.ForeignKey(Street, related_name="streets", on_delete=models.PROTECT)
+    locality = models.ForeignKey(Locality, related_name="addresses", on_delete=models.PROTECT)
+    street = models.ForeignKey(Street, related_name="addresses", on_delete=models.PROTECT)
 
