@@ -1,0 +1,18 @@
+{% extends 'addresses/base.html' %}
+
+{% block content %}
+  <table align="center">
+      <tr>
+          <th>Населенный пункт</th>
+          <th>Улица</th>
+          <th>Дом</th>
+      </tr>
+      {% for addr in addrs %}
+      <tr>
+          <th>{{ addr.locality.locality_name }}</th>
+          <th>{{ addr.street.street_name }} {{ addr.street.streettype.streettype_name }}</th>
+          <th>{{ addr.build_num }}</th>
+      </tr>
+      {% endfor %}
+  </table>
+{% endblock %}

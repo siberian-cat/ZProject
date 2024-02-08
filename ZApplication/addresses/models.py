@@ -1,3 +1,4 @@
+import psycopg2
 from django.db import models
 
 
