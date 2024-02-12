@@ -9,25 +9,41 @@ class AddressesHome(ListView):
     model = Address
     template_name = 'addresses/index.html'
     context_object_name = 'addrs'
-    extra_context = {'title': 'Список адресов'}
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Список адресов'
+        return context
 
 
 class StreetsHome(ListView):
     model = Street
     template_name = 'addresses/streets/index.html'
     context_object_name = 'strs'
-    extra_context = {'title': 'Список названий улиц'}
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Список названий улиц'
+        return context
 
 
 class LocalitiesHome(ListView):
     model = Locality
     template_name = 'addresses/localities/index.html'
     context_object_name = 'locs'
-    extra_context = {'title': 'Список населенных пунктов'}
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Список населенных пунктов'
+        return context
 
 
 class StreetTypesHome(ListView):
     model = StreetType
     template_name = 'addresses/streets/streettypes/index.html'
     context_object_name = 'strtypes'
-    extra_context = {'title': 'Список типов улиц'}
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Список типов улиц'
+        return context
