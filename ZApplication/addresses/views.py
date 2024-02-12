@@ -1,27 +1,33 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import ListView
 
 from .models import *
 
 
-def addresses_index(request):
-    addrs = Address.objects.all()
-    return render(request, 'addresses/index.html', {'title': 'Список адресов', 'addr': addrs})
+class AddressesHome(ListView):
+    model = Address
+    template_name = 'addresses/index.html'
+    context_object_name = 'addrs'
+    extra_context = {'title': 'Список адресов'}
 
 
-def localities_index(request):
-    return render(request, 'addresses/localities/index.html', {'title':'Список населенных пунктов',
-                                                               'header3': 'Здесь будет список населенных пунктов!',
-                                                               'header5': 'Ну, потом, когда-нибудь...'})
+class StreetsHome(ListView):
+    model = Street
+    template_name = 'addresses/streets/index.html'
+    context_object_name = 'strs'
+    extra_context = {'title': 'Список названий улиц'}
 
 
-def streets_index(request):
-    return render(request, 'addresses/streets/index.html', {'title':'Список названий улиц',
-                                                            'header3': 'Здесь будет список названий улиц!',
-                                                            'header5': 'Ну, потом, когда-нибудь...'})
+class LocalitiesHome(ListView):
+    model = Locality
+    template_name = 'addresses/localities/index.html'
+    context_object_name = 'locs'
+    extra_context = {'title': 'Список населенных пунктов'}
 
 
-def streettypes_index(request):
-    return render(request, 'addresses/streets/streettypes/index.html', {'title':'Список типов улиц',
-                                                                        'header3': 'Здесь будет список типов улиц!',
-                                                                        'header5': 'Ну, потом, когда-нибудь...'})
+class StreetTypesHome(ListView):
+    model = StreetType
+    template_name = 'addresses/streets/streettypes/index.html'
+    context_object_name = 'strtypes'
+    extra_context = {'title': 'Список типов улиц'}

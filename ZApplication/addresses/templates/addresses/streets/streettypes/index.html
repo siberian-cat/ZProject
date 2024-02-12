@@ -1,6 +1,14 @@
 {% extends 'addresses/base.html' %}
 
 {% block content %}
-    <h3>{{ header3 }}</h3>
-    <h5>{{ header5 }}</h5>
+  <table align="center" border="1">
+      <tr>
+          <th>Тип улицы</th>
+      </tr>
+      {% for stt in strtypes %}
+      <tr>
+          <th>{{ stt.streettype_name }}</th>
+      </tr>
+      {% endfor %}
+  </table>
 {% endblock %}

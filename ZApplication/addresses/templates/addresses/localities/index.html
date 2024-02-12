@@ -1,6 +1,14 @@
 {% extends 'addresses/base.html' %}
 
 {% block content %}
-    <h3>{{ header3 }}</h3>
-    <h5>{{ header5 }}</h5>
+  <table align="center" border="1">
+      <tr>
+          <th>Населенный пункт</th>
+      </tr>
+      {% for loc in locs %}
+      <tr>
+          <th>{{ loc.locality_name }}</th>
+      </tr>
+      {% endfor %}
+  </table>
 {% endblock %}

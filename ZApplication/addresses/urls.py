@@ -4,8 +4,8 @@ from .views import *
 
 
 urlpatterns = [
-    path('', addresses_index, name='addresses'),
-    path('localities/', localities_index, name='localities'),
-    path('streets/', streets_index, name='streets'),
-    path('streets/streettypes', streettypes_index, name='streettypes'),
+    path('', AddressesHome.as_view(), name='addresses'),
+    path('localities/', LocalitiesHome.as_view(), name='localities'),
+    path('streets/', StreetsHome.as_view(), name='streets'),
+    path('streets/streettypes', StreetTypesHome.as_view(), name='streettypes'),
 ]
