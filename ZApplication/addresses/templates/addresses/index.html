@@ -9,9 +9,9 @@
       </tr>
       {% for ad in addrs %}
       <tr>
-          <th>{{ ad.locality.locality_name }}</th>
-          <th>{{ ad.street.street_name }} {{ ad.street.streettype.streettype_name }}</th>
-          <th>{{ ad.build_num }}</th>
+          <td>{{ ad.locality.locality_name }}</td>
+          <td>{{ ad.street.street_name }} {{ ad.street.streettype.streettype_name }}</td>
+          <td>{{ ad.build_num }}</td>
       </tr>
       {% endfor %}
   </table>

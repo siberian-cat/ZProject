@@ -1,10 +1,11 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
+from django_tables2 import SingleTableView
 
 from .forms import *
 from .models import *
+from .tables import *
+
 
 
 class AddressesHome(ListView):
@@ -55,3 +56,9 @@ class StreetTypeAdd(CreateView):
     form_class = AddStreetTypeForm
     template_name = 'addresses/streets/streettypes/addstreettype.html'
     success_url = reverse_lazy('streettypes')
+
+
+class StreetTypesListView(SingleTableView):
+    model = StreetType
+    table_class = StreetTypesTable
+    template_name = 'addresses/streets/streettypes/index.html'

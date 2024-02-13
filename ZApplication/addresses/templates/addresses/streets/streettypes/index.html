@@ -1,14 +1,16 @@
 {% extends 'addresses/base.html' %}
+{% load render_table from django_tables2 %}
 
 {% block content %}
-  <table align="center" border="1">
-      <tr>
-          <th>Тип улицы</th>
-      </tr>
-      {% for stt in strtypes %}
-      <tr>
-          <th>{{ stt.streettype_name }}</th>
-      </tr>
-      {% endfor %}
-  </table>
+<!--  <table align="center" border="1">-->
+<!--      <tr>-->
+<!--          <th>Тип улицы</th>-->
+<!--      </tr>-->
+<!--      {% for stt in strtypes %}-->
+<!--      <tr>-->
+<!--          <td>{{ stt.streettype_name }}</td>-->
+<!--      </tr>-->
+<!--      {% endfor %}-->
+<!--  </table>-->
+{% render_table table %}
 {% endblock %}
