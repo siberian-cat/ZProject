@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView
 
+from .forms import *
 from .models import *
 
 
@@ -47,3 +49,9 @@ class StreetTypesHome(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Список типов улиц'
         return context
+
+
+class StreetTypeAdd(CreateView):
+    form_class = AddStreetTypeForm
+    template_name = 'addresses/streets/streettypes/addstreettype.html'
+    success_url = reverse_lazy('streettypes')
